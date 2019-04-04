@@ -1,0 +1,22 @@
+{
+    "name": "seegno/omnipay-airtm",
+    "description": "Omnipay airtm plugin",
+    "type": "library",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "Seegno",
+            "email": "projects@seegno.com"
+        }
+    ],
+    "require": {
+        "php-http/guzzle6-adapter": "^2.0",
+        "omnipay/common": "^3"
+    },
+    "autoload": {
+        "psr-4": { "Omnipay\\AirTM\\" : "src/" }
+    },
+    "require-dev": {
+        "omnipay/tests": "^3.1"
+    }
+}

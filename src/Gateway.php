@@ -79,7 +79,7 @@ class Gateway extends AbstractGateway
   }
 
   /**
-   * Purchase.
+   * Get.
    */
 
   public function get(array $parameters = array())

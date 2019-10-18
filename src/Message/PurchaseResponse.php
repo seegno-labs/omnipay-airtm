@@ -14,13 +14,13 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
      * Live endpoint.
      */
 
-    protected $liveCheckoutEndpoint = 'https://purchases.airtm.io/checkout/%s';
+    protected $liveCheckoutEndpoint = 'https://payments.air-pay.io/checkout/%s';
 
     /**
      * Test endpoint.
      */
 
-    protected $testCheckoutEndpoint = 'https://purchases.staging.airtm.org/checkout/%s';
+    protected $testCheckoutEndpoint = 'https://payments.static-stg.tests.airtm.org/checkout/%s';
 
 
   /**

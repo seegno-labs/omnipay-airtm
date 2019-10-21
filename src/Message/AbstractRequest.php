@@ -15,13 +15,13 @@ class AbstractRequest extends BaseAbstractRequest
    * Live endpoint.
    */
 
-  protected $liveEndpoint = 'https://purchases.airtm.io';
+  protected $liveEndpoint = 'https://payments.air-pay.io';
 
   /**
    * Test endpoint.
    */
 
-  protected $testEndpoint = 'https://purchases.staging.airtm.org';
+  protected $testEndpoint = 'https://payments.static-stg.tests.airtm.org';
 
   /**
    * Get data.

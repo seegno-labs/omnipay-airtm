@@ -8,6 +8,19 @@ class GetRequest extends AbstractRequest
 {
 
   /**
+   * Get data.
+   */
+
+  public function getData()
+  {
+    $this->validate('id');
+
+    $data = parent::getData();
+
+    return $data;
+  }
+
+  /**
    * Get id.
    */
 
@@ -33,15 +46,6 @@ class GetRequest extends AbstractRequest
   {
     return 'GET';
   }
-  
-  /**
-   * Create response.
-   */
-
-  protected function createResponse($data)
-  {
-    return $this->response = new GetResponse($this, $data);
-  }
 
   /**
    * Get endpoint.
@@ -50,8 +54,9 @@ class GetRequest extends AbstractRequest
   protected function getEndpoint()
   {
     $id = $this->getId();
+    $host =$this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
 
-    return $this->getTestMode() ? "$this->testEndpoint/purchases/$id" : "$this->liveEndpoint/purchases/$id";
+    return "$host/operations/$id";
   }
 
 }

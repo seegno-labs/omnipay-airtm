@@ -22,18 +22,6 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
 
     protected $testCheckoutEndpoint = 'https://payments.static-stg.tests.airtm.org/checkout/%s';
 
-
-  /**
-   * Is successful.
-   */
-
-  public function isSuccessful()
-  {
-    $success = isset($this->data['id']) && isset($this->data['status']) && in_array($this->data['status'], array('created'));
-
-    return $success;
-  }
-
     /**
      * Get redirect url.
      */
@@ -41,15 +29,6 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
     public function getRedirectUrl()
     {
         return $this->getCheckoutEndpoint();
-    }
-
-    /**
-     * Get transaction reference.
-     */
-
-    public function getTransactionReference()
-    {
-        return isset($this->data['id']) ? $this->data['id'] : null;
     }
 
     /**

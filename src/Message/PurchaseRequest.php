@@ -30,7 +30,7 @@ class PurchaseRequest extends AbstractRequest
     $data['cancel_uri'] = $this->getCancelUrl();
     $data['code'] = $this->getCode();
     $data['items'] = $this->getItemData();
-    $data['redirect_uri'] = $this->getRedirectUrl();
+    $data['confirmation_uri'] = $this->getConfirmationUrl();
 
     return $data;
   }
@@ -54,21 +54,21 @@ class PurchaseRequest extends AbstractRequest
   }
 
   /**
-   * Get redirect url.
+   * Get confirmation url.
    */
 
-  public function getRedirectUrl()
+  public function getConfirmationUrl()
   {
-    return $this->getParameter('redirectUrl');
+    return $this->getParameter('confirmationUrl');
   }
 
   /**
-   * Set redirect url.
+   * Set confirmation url.
    */
 
-  public function setRedirectUrl($redirectUrl)
+  public function setConfirmationUrl($confirmationUrl)
   {
-    return $this->setParameter('redirectUrl', $redirectUrl);
+    return $this->setParameter('confirmationUrl', $confirmationUrl);
   }
 
   /**
@@ -97,9 +97,9 @@ class PurchaseRequest extends AbstractRequest
    * Create response.
    */
 
-  protected function createResponse($data)
+  protected function createResponse($data, $httpStatusCode)
   {
-    return $this->response = new PurchaseResponse($this, $data);
+    return $this->response = new PurchaseResponse($this, $data, $httpStatusCode);
   }
 
   /**

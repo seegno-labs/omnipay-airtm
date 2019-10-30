@@ -3,6 +3,7 @@
 namespace Omnipay\AirTM\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
+use Omnipay\Common\Message\RequestInterface;
 
 /**
  * Response.
@@ -10,6 +11,40 @@ use Omnipay\Common\Message\AbstractResponse;
 
 class Response extends AbstractResponse
 {
+  /**
+   * Http status code.
+   */
+
+  protected $httpStatusCode;
+
+  /**
+   * Response constructor.
+   */
+
+  public function __construct(RequestInterface $request, $data, $httpStatusCode)
+  {
+    parent::__construct($request, $data);
+
+    $this->httpStatusCode = $httpStatusCode;
+  }
+
+  /**
+   * Get http status code.
+   */
+
+  public function getHttpStatusCode()
+  {
+      return $this->httpStatusCode;
+  }
+
+  /**
+   * Get transaction reference.
+   */
+
+  public function getTransactionReference()
+  {
+      return isset($this->data['id']) ?? null;
+  }
 
   /**
    * Get message.
@@ -17,7 +52,16 @@ class Response extends AbstractResponse
 
   public function getMessage()
   {
-      return $this->data;
+      return $this->data['message'] ?? null;
+  }
+
+  /**
+   * Get messages.
+   */
+
+  public function getMessages()
+  {
+      return $this->data['messages'] ?? [];
   }
 
   /**
@@ -26,6 +70,6 @@ class Response extends AbstractResponse
 
   public function isSuccessful()
   {
-    return isset($this->data['id']);
+      return isset($this->data['id']) && $this->getHttpStatusCode() < 400;
   }
 }

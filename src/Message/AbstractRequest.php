@@ -120,9 +120,9 @@ class AbstractRequest extends BaseAbstractRequest
    * Create response.
    */
 
-  protected function createResponse($data)
+  protected function createResponse($data, $httpStatusCode)
   {
-    return $this->response = new Response($this, $data);
+    return $this->response = new Response($this, $data, $httpStatusCode);
   }
 
 }

@@ -43,7 +43,7 @@ class Response extends AbstractResponse
 
   public function getTransactionReference()
   {
-      return isset($this->data['id']) ?? null;
+      return $this->data['id'] ?? null;
   }
 
   /**

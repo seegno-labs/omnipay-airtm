@@ -84,14 +84,6 @@ class PurchaseRequest extends AbstractRequest
     return $this->setParameter('items', $items);
   }
 
-  /**
-   * Get items.
-   */
-
-  public function  getItems()
-  {
-    return $this->getParameter('items');
-  }
 
   /**
    * Create response.

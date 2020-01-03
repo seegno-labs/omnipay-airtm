@@ -79,6 +79,24 @@ class Gateway extends AbstractGateway
   }
 
   /**
+   * Payout.
+   */
+
+  public function payout(array $parameters = array())
+  {
+    return $this->createRequest('\Omnipay\AirTM\Message\CreatePayoutRequest', $parameters);
+  }
+
+  /**
+   * Commit Payout.
+   */
+
+  public function commitPayout(array $parameters = array())
+  {
+    return $this->createRequest('\Omnipay\AirTM\Message\CommitPayoutRequest', $parameters);
+  }
+
+  /**
    * Get.
    */
 

@@ -15,9 +15,7 @@ class GetRequest extends AbstractRequest
   {
     $this->validate('id');
 
-    $data = parent::getData();
-
-    return $data;
+    return parent::getData();
   }
 
   /**
@@ -39,24 +37,14 @@ class GetRequest extends AbstractRequest
   }
 
   /**
-   * Get http method.
-   */
-
-  protected function getHttpMethod()
-  {
-    return 'GET';
-  }
-
-  /**
    * Get endpoint.
    */
 
   protected function getEndpoint()
   {
     $id = $this->getId();
-    $host =$this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
 
-    return "$host/operations/$id";
+    return parent::getEndpoint() . "/operations/$id";
   }
 
 }

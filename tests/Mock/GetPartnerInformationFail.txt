@@ -1,0 +1,10 @@
+HTTP/1.1 401 Unauthorized
+Server: Apache-Coyote/1.1
+Content-Language: *
+Date: Sun, 02 JUL 2019 09:14:43 GMT
+Content-Type: application/json
+Content-Length: 505
+
+{
+    "message": "Invalid credentials"
+}

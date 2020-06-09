@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Language: *
+Date: Sun, 02 JUL 2019 09:14:43 GMT
+Content-Type: application/json
+Content-Length: 505
+
+{
+    "balance" : 20,
+    "id" : "foobar",
+    "currency" : "USD",
+    "email" : "fred@waldo.com",
+    "name" : "plugh"
+}

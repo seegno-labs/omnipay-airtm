@@ -29,7 +29,7 @@ class Gateway extends AbstractGateway
     return [
       'partnerId' => '',
       'partnerSecret' => '',
-      'testMode' => false
+      'testMode' => true
     ];
   }
 
@@ -67,6 +67,15 @@ class Gateway extends AbstractGateway
   public function setPartnerSecret(string $partnerSecret)
   {
     return $this->setParameter('partnerSecret', $partnerSecret);
+  }
+
+  /**
+   * Get partner information.
+   */
+
+  public function getPartnerInformation(array $parameters = array())
+  {
+    return $this->createRequest('\Omnipay\AirTM\Message\GetPartnerInformationRequest', $parameters);
   }
 
   /**

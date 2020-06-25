@@ -72,6 +72,15 @@ class AbstractRequest extends BaseAbstractRequest
   }
 
   /**
+   * Get http method.
+   */
+
+  protected function getHttpMethod()
+  {
+    return 'GET';
+  }
+
+  /**
    * Get authorization.
    */
 
@@ -81,6 +90,17 @@ class AbstractRequest extends BaseAbstractRequest
     $partnerSecret = $this->getPartnerSecret();
 
     return base64_encode("$partnerId:$partnerSecret");
+  }
+
+  /**
+   * Get endpoint.
+   */
+
+  protected function getEndpoint()
+  {
+    $host =$this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
+
+    return $host;
   }
 
   /**

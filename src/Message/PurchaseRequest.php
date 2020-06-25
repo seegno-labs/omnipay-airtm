@@ -140,7 +140,7 @@ class PurchaseRequest extends AbstractRequest
 
   protected function getEndpoint()
   {
-      return $this->getTestMode() ? "$this->testEndpoint/purchases" : "$this->liveEndpoint/purchases";
+      return parent::getEndpoint() . "/purchases";
   }
 
 }
